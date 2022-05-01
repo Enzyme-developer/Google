@@ -23,9 +23,6 @@ export const ResultContextProvider = ( {children }) => {
 
         const data = await response.json();
 
-        
-        console.log( {type, data} )
-
         if(type.includes('/news')){
             setResults(data.entries);
         } else {

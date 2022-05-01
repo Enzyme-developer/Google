@@ -6,18 +6,19 @@ import Loading from './Loading';
 
 const Results = () => {
 
-  const { results , loading, getResults, searchTerm } = useResultContext();
+  const { results , Imageresults , loading, getResults, searchTerm } = useResultContext();
   const location = useLocation();
 
   useEffect(() => {
     if (searchTerm !== '') {
       if (location.pathname === '/videos') {
         getResults(`/search/q=${searchTerm} videos`);
-      } else {
+      } else{
         getResults(`${location.pathname}/q=${searchTerm}}&num=40`);
-      }
+      } 
     }
   }, [searchTerm, location.pathname]);
+
 
   if(loading){return <Loading />};
 
@@ -51,6 +52,7 @@ const Results = () => {
               ))}
             </div>
           );
+
 
         
       case '/videos':
